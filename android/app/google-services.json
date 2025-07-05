@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "257676293926",
+    "project_id": "tappr-mobile-c74e3",
+    "storage_bucket": "tappr-mobile-c74e3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257676293926:android:6d9432eaa4905c97c6f3e7",
+        "android_client_info": {
+          "package_name": "com.tappr.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-xLdEkQIqT-FuAh0qr5xFJVf6PecnyFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
