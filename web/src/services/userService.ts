@@ -1,5 +1,6 @@
 import { doc, getDoc, setDoc, query, where, collection, getDocs } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '@/lib/firebase';
 import { UserProfile } from '@/types';
 
 export class UserService {
@@ -45,4 +46,32 @@ export class UserService {
       throw error;
     }
   }
-} 
+
+  static async updateUserProfile(userId: string, userData: Partial<UserProfile>): Promise<void> {
+    try {
+      await setDoc(doc(db, 'users', userId), {
+        ...userData,
+        updatedAt: new Date()
+      }, { merge: true });
+    } catch (error) {
+      console.error('Error updating user profile:', error);
+      throw error;
+    }
+  }
+
+  static async uploadProfileImage(userId: string, file: File): Promise<string> {
+    try {
+      const storageRef = ref(storage, `profile-images/${userId}/${Date.now()}-${file.name}`);
+      const snapshot = await uploadBytes(storageRef, file);
+      const downloadURL = await getDownloadURL(snapshot.ref);
+      return downloadURL;
+    } catch (error) {
+      console.error('Error uploading profile image:', error);
+      throw error;
+    }
+  }
+}
+
+// Export individual functions for easier importing
+export const updateUserProfile = UserService.updateUserProfile;
+export const uploadProfileImage = UserService.uploadProfileImage; 

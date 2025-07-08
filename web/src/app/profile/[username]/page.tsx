@@ -1,6 +1,7 @@
 import { UserService } from '@/services/userService';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import DiscoveryButton from '../../../components/DiscoveryButton';
 
 interface ProfilePageProps {
   params: {
@@ -45,6 +46,46 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               <p className="text-gray-700 text-center leading-relaxed">
                 {user.bio}
               </p>
+            </div>
+          )}
+
+          {/* Discovery Call to Action */}
+          <div className="mb-8">
+            <div className="text-center mb-4">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                Discover Your Compatibility
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Answer a few questions to see how well you connect
+              </p>
+            </div>
+            <DiscoveryButton targetUser={{ uid: user.uid || user.id || '', username: user.username, name: user.name }} />
+          </div>
+
+          {/* Date Ideas */}
+          {user.dateIdeas && user.dateIdeas.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+                Perfect Date Ideas
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {user.dateIdeas.slice(0, 4).map((idea, index) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-100"
+                  >
+                    <div className="text-center">
+                      <div className="text-2xl mb-2">{idea.emoji}</div>
+                      <h4 className="font-medium text-gray-900 text-sm mb-1">
+                        {idea.title}
+                      </h4>
+                      <p className="text-xs text-gray-600">
+                        {idea.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
