@@ -133,7 +133,7 @@ export default function ProfilePage() {
           {/* Dynamic Greeting */}
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Hey{visitorName && `, ${visitorName}`}! You tapped {user.name?.split(' ')[0] || user.username}'s card!
+              Hey{visitorName && ` ${visitorName}`}! You tapped {user.name?.split(' ')[0] || user.name || ''}'s card!
             </h2>
           </div>
           {/* Name Input */}
@@ -170,7 +170,7 @@ export default function ProfilePage() {
               )}
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mt-3">
-              {user.name || `@${user.username}`}
+              Bio
             </h3>
             {user.bio && (
               <p className="text-gray-600 mt-2 text-sm">{user.bio}</p>
