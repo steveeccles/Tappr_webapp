@@ -37,9 +37,12 @@ export default function Home() {
           </div>
           
           <div className="mt-12">
-            <p className="text-gray-500">
-              Visit a profile: <code className="bg-gray-100 px-2 py-1 rounded">/profile/username</code>
-            </p>
+                      <p className="text-gray-500">
+            Visit a profile: <code className="bg-gray-100 px-2 py-1 rounded">/profile/username</code>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            Updated with new features - v2.0
+          </p>
           </div>
         </div>
       </div>
