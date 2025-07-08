@@ -109,3 +109,4 @@ All Firebase config variables must be prefixed with `NEXT_PUBLIC_` to be availab
 ## License
 
 This project is part of the Tappr ecosystem.
+# Force deployment Tue Jul  8 14:40:18 BST 2025
