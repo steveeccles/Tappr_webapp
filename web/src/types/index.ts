@@ -25,6 +25,10 @@ export interface UserProfile {
   // Also add direct fields for easier access
   instagram?: string;
   linkedIn?: string;
+  // Migration and enhancement tracking
+  hasDefaultData?: boolean;
+  normalizedAt?: Date;
+  migratedAt?: Date;
   createdAt?: Date;
   updatedAt?: Date;
 } 
